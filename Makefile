@@ -1,5 +1,11 @@
-CV_CLASS := cv.cls
-PROJECT_NAME := cv-lukas-bjarre
+NAME := lukas-bjarre
+DOCS := cv coverletter
 
-$(PROJECT_NAME).pdf: $(PROJECT_NAME).tex $(CV_CLASS)
+OTHER := cv.cls preamble.tex
+SRC   := $(foreach DOC,$(DOCS),$(DOC)-$(NAME).tex)
+PDF   := $(SRC:.tex=.pdf)
+
+all: $(PDF)
+
+%.pdf: %.tex $(OTHER)
 	latexmk -lualatex $<

@@ -43,6 +43,7 @@
 
 \setlength{\parindent}{0pt}
 \setlength{\fboxsep}{0pt}
+\setlength{\footskip}{14pt}
 
 \newcommand{\titlefont}{\fontsize{20pt}{22pt}\selectfont}
 \newcommand{\headerfont}{\fontsize{18pt}{19pt}\selectfont}
@@ -59,7 +60,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{.4pt}
 \fancyfoot[C]{}
-\fancyfoot[R]{page \thepage\ of \pageref{LastPage}}
+\fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
 
 \newcommand{\mainheader}{%
     \hskip-\Gm@lmargin\relax
@@ -94,7 +95,7 @@
 
 \newcommand{\category}[1]{%
     \stepcounter{category}
-    \vskip.5\baselineskip\relax
+    \vskip\baselineskip\relax
     \hskip -\Gm@lmargin \relax
     \begin{minipage}{\lm@rgintext}
         \begin{flushright}
@@ -103,8 +104,10 @@
     \end{minipage}%
     \hskip\lm@rginskip\relax%
     \hrulefill%
+    \nopagebreak
     \vskip0pt\relax%
     \normalsize
+    \nopagebreak
 }
 
 \newcommand{\entryheaderfont}{\bf\fontsize{10pt}{12pt}\selectfont}
@@ -112,7 +115,7 @@
 
 \newenvironment{entrywithdates}[3]
     {% Start env
-        \vskip.6\baselineskip\relax
+        \vskip.75\baselineskip\relax
         \hskip -\Gm@lmargin \relax
         \begin{minipage}[t][][t]{\lm@rgintext}
             \raggedleft
@@ -181,7 +184,7 @@
         }%
         \vskip\smallskipamount\relax
     }
-    {% Env env
+    {% End env
         \let\item\olditem
     }
 
